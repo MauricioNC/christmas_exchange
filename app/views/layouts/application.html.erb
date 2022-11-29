@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <div class="flash__messages">
+        <%= flash[:notice] if flash[:notice] %>
+        <%= flash[:error] if flash[:error] %>
+        <%= flash[:success] if flash[:success] %>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
