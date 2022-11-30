@@ -6,14 +6,15 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
 
-    raise if !@group.save
+    if @group.save
+      link = generate_link({model: 'group', group_name: @group.group_name, token: @group.token})
+      pp link
+      @group.update_attribute(:link, link)
 
-    link = generate_link({model: 'group', token: @group.token})
-    @group.update_attribute(:link, link)
-
-    redirect_to root_path, success: "Group created successfully"
-  rescue => e
-    redirect_to root_path, error: "Error creating group, #{e.message}"
+      redirect_to root_path, success: "Group created successfully"
+    else
+      redirect_to root_path, error: "Error creating group"
+    end
   end
 
   private
