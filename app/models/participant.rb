@@ -1,5 +1,6 @@
 class Participant < ApplicationRecord
-  belongs_to :group, class_name: "group", foreign_key: "group_id"
+  has_secure_token :token, length: 36
+  belongs_to :group, class_name: "Group", foreign_key: "group_id"
 
   validates_presence_of :name, on: :create, message: "can't be blank"
 
