@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/group/:group_name/:token', to: 'participants#new'
-  # get '/group/:participant_name/:token', to: 'exchange#index'
+  get '/participant/:participant_name/:token', to: 'exchange#index'
 end
