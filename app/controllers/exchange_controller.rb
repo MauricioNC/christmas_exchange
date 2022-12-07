@@ -2,6 +2,8 @@ class ExchangeController < ApplicationController
   before_action :validate_gift_to_assoc
 
   def index
+    @participants = Participant.select("name")
+
     if @random_participant.nil?
       @random_participant = get_raffled_participant()
 
