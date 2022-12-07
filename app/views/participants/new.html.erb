@@ -1,6 +1,6 @@
 <%= form_with model: @participant do |f| %>
   <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.text_area :description, placeholder: "A gift that I wish is..." %>
+  <%= f.text_area :description, placeholder: "A gift that I wish is...", size: "30x10" %>
   <%= f.hidden_field :group_token, value: params[:token]%>
-  <%= f.submit "Register" %>
+  <%= f.submit "Register", class: "btn btn-action" %>
 <% end %>

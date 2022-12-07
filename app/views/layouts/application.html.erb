@@ -11,17 +11,15 @@
   </head>
 
   <body>
-    <main>
-      <div class="flash__messages">
+    <main class="main">
+      <div class="flash__message">
         <% flash.each do |type, msg| %>
-          <div class="alert">
-            <%= msg if type == "notice" %>
-          </div>
-          <div class="error">
-            <%= msg if type == "error" %>
-          </div>
-          <div class="alert">
-            <%= msg if type == "success" %>
+          <div class="flash__message-<%= type %>">
+            <% if msg.kind_of?(Array) %>
+              <%= safe_join(msg, "<br>".html_safe) %>
+            <% else %>
+              <%= msg %>
+            <% end %>
           </div>
         <% end %>
       </div>
