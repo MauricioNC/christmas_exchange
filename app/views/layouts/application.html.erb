@@ -13,9 +13,17 @@
   <body>
     <main>
       <div class="flash__messages">
-        <%= flash[:notice] if flash[:notice] %>
-        <%= flash[:error] if flash[:error] %>
-        <%= flash[:success] if flash[:success] %>
+        <% flash.each do |type, msg| %>
+          <div class="alert">
+            <%= msg if type == "notice" %>
+          </div>
+          <div class="error">
+            <%= msg if type == "error" %>
+          </div>
+          <div class="alert">
+            <%= msg if type == "success" %>
+          </div>
+        <% end %>
       </div>
       <%= yield %>
     </main>

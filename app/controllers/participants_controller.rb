@@ -19,7 +19,7 @@ class ParticipantsController < ApplicationController
 
       redirect_to "/group/#{@group.group_name}/#{@group.token}"
     else
-      redirect_to "/group/#{@group.group_name}/#{@group.token}", error: "Something wents wrong, please try again, #{excpetion.message}"
+      redirect_to "/group/#{@group.group_name}/#{@group.token}", error: @participant.errors[:name][0]
     end
   end
 

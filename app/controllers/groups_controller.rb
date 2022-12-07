@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
 
       render :new
     else
-      redirect_to root_path, error: "Error creating group"
+      redirect_to new_group_path, error: @group.errors[:group_name][0]
     end
   end
 
