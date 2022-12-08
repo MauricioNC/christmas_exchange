@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+body {
+  display: flex;
+  background-color: #282828;
+  font-family: 'Montserrat', 'Verdana';
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Styles for buttons, buttons links and buttons actions
+
+a { text-decoration: none; color: rgb(82, 79, 79); }
+
+.btn {
+  background-color: rgb(228, 228, 228);
+  padding: 0.7rem;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 1px 1px 20px 4px rgba(15, 15, 15, 0.938);
+  }
+
+  &-link {
+    background-color: rgb(7, 152, 236);
+    color:rgb(228, 228, 228);
+  }
+
+  &-action {
+    background-color: rgb(6, 192, 47);
+    color:rgb(228, 228, 228);
+  }
+}
+
+// Styles for forms
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  margin: 3px;
+  padding: 8px;
+}
+
+.flash__message {
+  position: absolute;
+  top: 4rem;
+
+  & > div {
+    padding: 0.8rem;
+    border-radius: 5px;
+  }
+
+  &-notice {
+    background-color: #93c8e7;
+    color: #1487ca;
+  }
+  &-error {
+    background-color: #ecbfc9;
+    color: #cc1039;
+  }
+  &-success {
+    background-color: #a4eec3;
+    color: #07a04c;
+  }
+}

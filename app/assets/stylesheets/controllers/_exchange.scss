@@ -1,0 +1,46 @@
+.random_participant {
+  min-width: 100px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-basis: 5rem;
+  flex-grow: 1;
+  width: 80%;
+  padding: 1rem;
+  transition: 2s ease;
+
+  div {
+    margin: 5px;
+    font-size: 1.1rem;
+    color: rgb(228, 228, 228);
+    animation: raffle 0.6s infinite alternate;
+  }
+}
+
+.gift_to {
+  opacity: 0;
+  transition: 2s ease;
+}
+
+@keyframes raffle {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+    transform: translate(-80%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(180deg);
+    transform: translate(80%);
+  }
+}
