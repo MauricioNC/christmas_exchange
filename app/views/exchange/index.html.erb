@@ -1,6 +1,15 @@
-<div class="random_participant" id="random_participant" data-participants="<%= @participants.to_json %>">
+<div class="random_participant" id="random_participant">
   <div class="participants" id="participants">
   </div>
-  <div class="gift_to">
+  <div class="gift_to" id="gift_to">
   </div>
 </div>
+
+<%= javascript_tag do %>
+  const random_participant_data = document.getElementById('random_participant')
+  let participants = '<%= @participants.shuffle.to_json.html_safe%>'
+
+  const gift_to_participant = document.getElementById('gift_to');
+  let participant = '<%= @random_participant.name %>';
+
+<% end %>
