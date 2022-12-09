@@ -9,7 +9,7 @@
 
 body {
   display: flex;
-  background-color: #282828;
+  background-color: rgb(228, 228, 228);
   font-family: 'Montserrat', 'Verdana';
   width: 100vw;
   height: 100vh;
@@ -27,7 +27,7 @@ a { text-decoration: none; color: rgb(82, 79, 79); }
   transition: 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: 1px 1px 20px 4px rgba(15, 15, 15, 0.938);
+    box-shadow: 0 10px 12px -9px rgba(128, 128, 128, 0.582);
   }
 
   &-link {

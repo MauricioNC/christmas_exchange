@@ -11,10 +11,10 @@ class GroupsController < ApplicationController
 
       @group.update_attribute(:link, link)
 
-      flash[:success] =  "Group #{@group.group_name}created successfully"
+      flash[:success] =  ["Group #{@group.group_name}created successfully"]
       flash[:success]<< "Share this #{link} link with your friends that will be part of the exchange!!"
 
-      render :new
+      redirect_to new_group_path
     else
       redirect_to new_group_path, error: @group.errors[:group_name][0]
     end
