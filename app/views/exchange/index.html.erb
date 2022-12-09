@@ -19,10 +19,18 @@
   let participants;
 
   <% unless !@current_user.gift_to.nil? %>
-    participants = '<%= @participants.shuffle.to_json.html_safe%>'
+    participants = '<%= @participants.shuffle.to_json.html_safe %>'
   <% end %>
 
   const gift_to_participant = document.getElementById('gift_to');
-  let participant = '<%= @random_participant.name %>';
+  let participant
+
+  <% if @random_participant.instance_of?(Participant)%>
+    participant = '<%= @random_participant.name %>';
+  <% else %>
+    participant = '<%= @random_participant %>';
+    participants = undefined
+    gift_to_participant.classList.add('error_raffle');
+  <% end %>
 
 <% end %>

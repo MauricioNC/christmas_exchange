@@ -1,5 +1,5 @@
 class ExchangeController < ApplicationController
-  before_action :validate_gift_to_assoc, :set_current_user
+  before_action :validate_gift_to_assoc, :set_current_user, :validate_participants_raffled
 
   def index
     @participants = Participant.select(:name)
@@ -34,5 +34,15 @@ class ExchangeController < ApplicationController
 
   def set_current_user
     @current_user = Participant.find_by(token: params[:token])
+  end
+
+  def validate_participants_raffled
+    total_participants_of_current_group = Participant.where(group_id: @current_user.group_id).count
+    participants_raffled = Participant.where.not(id: @current_user.id).where(is_raffled: nil).count
+    participant_not_gift_to = Participant.find_by(id: @current_user.id).gift_to.nil?
+
+    if participant_not_gift_to && participants_raffled === 0
+      @random_participant = "There are no more participants to raffle, just you, wait until other participants registered to raffle. The number of participant for #{Group.find(@current_user.group_id).group_name} group is #{Participant.where(group_id: @current_user.group_id).count}"
+    end
   end
 end

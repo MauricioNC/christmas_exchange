@@ -3,6 +3,7 @@
   max-width: 500px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
 }
@@ -39,6 +40,11 @@
   text-align: center;
   font-weight: 800;
   color: rgb(20, 161, 243);
+}
+
+.error_raffle {
+  background-color: #ecbfc9;
+  color: #cc1039;
 }
 
 @keyframes raffle {
