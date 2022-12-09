@@ -1,5 +1,5 @@
 class ExchangeController < ApplicationController
-  before_action :validate_gift_to_assoc
+  before_action :validate_gift_to_assoc, :set_current_user
 
   def index
     @participants = Participant.select(:name)
@@ -18,6 +18,8 @@ class ExchangeController < ApplicationController
     end
   end
 
+  private
+
   def lock_participant(participant)
     Participant.find(participant).update_attribute(:is_raffled, true)
   end
@@ -28,5 +30,9 @@ class ExchangeController < ApplicationController
 
   def validate_gift_to_assoc
     @random_participant = Participant.find(Participant.find_by(token: params[:token]).gift_to) if Participant.where.not(gift_to: nil).find_by(token: params[:token])
+  end
+
+  def set_current_user
+    @current_user = Participant.find_by(token: params[:token])
   end
 end

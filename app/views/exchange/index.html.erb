@@ -6,8 +6,21 @@
 </div>
 
 <%= javascript_tag do %>
+
+  /*
+    Short script to set the variables that will be used in the raffle.js file.
+    Varaibale participants is created but not defined, so the default value is 'undefined'
+
+    The variable is defined only if the current_user already saw who to give a gift, otherwise the variable keeps the 'undefined' value.
+    This validation is to avoid that the raffle animation is executed each time the user enter to the page.
+  */
+
   const random_participant_data = document.getElementById('random_participant')
-  let participants = '<%= @participants.shuffle.to_json.html_safe%>'
+  let participants;
+
+  <% unless !@current_user.gift_to.nil? %>
+    participants = '<%= @participants.shuffle.to_json.html_safe%>'
+  <% end %>
 
   const gift_to_participant = document.getElementById('gift_to');
   let participant = '<%= @random_participant.name %>';
