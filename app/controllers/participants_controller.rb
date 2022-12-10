@@ -15,7 +15,7 @@ class ParticipantsController < ApplicationController
 
       @participant.update_attribute(:participant_link, link)
       flash[:success] = ["You registered successfully to: #{@group.group_name}"]
-      flash[:success] << "Please go to this #{link} link to see what participant you'll give a gift!!"
+      flash[:success] << "Please go to this http://localhost:3000#{link} link to see what participant you'll give a gift!!"
 
       redirect_to "/group/#{@group.group_name}/#{@group.token}"
     else

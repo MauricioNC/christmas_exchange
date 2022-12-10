@@ -5,6 +5,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 20rem;
+  flex-grow: 1;
+  gap: 5rem;
   z-index: 1;
 }
 
@@ -45,4 +49,25 @@
     opacity: 0;
     transform: translate(0, 90vh);
   }
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1, h4 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: crimson;
+}
+
+h4 {
+  width: 77%;
+  color:rgba(99, 173, 235, 0.959)
 }

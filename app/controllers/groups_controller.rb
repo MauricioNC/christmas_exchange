@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
       @group.update_attribute(:link, link)
 
       flash[:success] =  ["Group #{@group.group_name}created successfully"]
-      flash[:success]<< "Share this #{link} link with your friends that will be part of the exchange!!"
+      flash[:success]<< "Share this http://localhost:3000#{link} link with your friends that will be part of the exchange!!"
 
       redirect_to new_group_path
     else

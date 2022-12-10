@@ -18,7 +18,7 @@
         <% flash.each do |type, msg| %>
           <div class="flash__message-<%= type %>">
             <% if msg.kind_of?(Array) %>
-              <%= safe_join(msg, "<br>".html_safe) %>
+              <%= safe_join(msg, "<br><br>".html_safe) %>
             <% else %>
               <%= msg %>
             <% end %>

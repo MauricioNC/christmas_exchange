@@ -1,4 +1,6 @@
+<h1>Please enter the name for your group</h1>
+
 <%= form_with model: @group do |f| %>
   <%= f.text_field :group_name, placeholder: "Group name" %>
-  <%= f.submit "Create group", class: "btn btn-action" %>
+  <%= f.submit "Create group", class: "btn btn-link" %>
 <% end %>

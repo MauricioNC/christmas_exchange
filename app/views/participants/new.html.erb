@@ -1,6 +1,8 @@
+<h1 style="font-size: 1.3rem">Please enter you number and a gift that you whish, make it funny for your friends and enjoy!</h1>
+
 <%= form_with model: @participant do |f| %>
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.text_area :description, placeholder: "A gift that I wish is...", size: "30x10" %>
   <%= f.hidden_field :group_token, value: params[:token]%>
-  <%= f.submit "Register", class: "btn btn-action" %>
+  <%= f.submit "Register", class: "btn btn-link" %>
 <% end %>
