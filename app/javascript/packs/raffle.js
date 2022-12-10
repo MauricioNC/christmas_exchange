@@ -1,7 +1,7 @@
 import { Animations } from "./animations";
 
 setTimeout(() => {
-  if (random_participant_data)
+  if (typeof random_participant_data !== 'undefined')
   {
     /*
       Add a validation to validate if the typeof participants variable that is created in the index.html.erb file form the exchange controller is 'undefined', if not, then execute the animation at first time, if the typeof is equal to 'undefined', that means that the user already saw the participant the he/she/ must give a gift.

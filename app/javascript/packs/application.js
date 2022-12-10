@@ -13,3 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require('./raffle')
+require('./snow')
